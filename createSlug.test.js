@@ -1,7 +1,6 @@
 const {test, expect} = require("@jest/globals");
 const createSlug = require('./createSlug');
 const posts = require('./posts.json');
-const { nullableTypeAnnotation } = require("@babel/types");
 
 test("createSlug dovrebbe ritornare una stringa", () => {
     const testo = "ciao"
@@ -31,4 +30,8 @@ test("createSlug dovrebbe lanciare un errore in caso di titolo non presente o fo
     const titolo = null
     const result = () => createSlug(titolo)
     expect(result).toThrowError("Something went wrong");
+})
+
+test('createSlug dovrebbe lanciare un errore se manca l’array dei post', () => {
+
 })
